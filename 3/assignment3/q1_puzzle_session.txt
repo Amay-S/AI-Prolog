@@ -1,0 +1,110 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Amay Shah
+%%%%% NAME: Farhan Ali
+%%%%% NAME:
+%
+% Add the required rules in the corresponding sections. 
+% If you put the rules in the wrong sections, you will lose marks.
+%
+% You may add additional comments as you choose but DO NOT MODIFY the comment lines below
+%
+
+%%%%% SECTION: puzzleGenerateAndTestSession
+%%%%% Put your session for generate and test below
+
+/*
+
+amay-mbp@Amays-MacBook-Pro assignment3 % eclipse                  
+ECLiPSe Constraint Logic Programming System [kernel]
+Kernel and basic libraries copyright Cisco Systems, Inc.
+and subject to the Cisco-style Mozilla Public Licence 1.1
+(see legal/cmpl.txt or http://eclipseclp.org/licence)
+Source available at www.sourceforge.org/projects/eclipse-clp
+GMP library copyright Free Software Foundation, see legal/lgpl.txt
+For other libraries see their individual copyright notices
+Version 6.1 #164 (x86_64_macosx), Mon Jul 15 23:37 2013
+[eclipse 1]: ['q1a_puzzle_generate_and_test.pl'].
+source_processor.eco loaded in 0.01 seconds
+hash.eco   loaded in 0.00 seconds
+compiler_common.eco loaded in 0.01 seconds
+compiler_normalise.eco loaded in 0.01 seconds
+compiler_map.eco loaded in 0.00 seconds
+compiler_analysis.eco loaded in 0.00 seconds
+compiler_peephole.eco loaded in 0.00 seconds
+compiler_codegen.eco loaded in 0.01 seconds
+compiler_varclass.eco loaded in 0.00 seconds
+compiler_indexing.eco loaded in 0.00 seconds
+compiler_regassign.eco loaded in 0.00 seconds
+asm.eco    loaded in 0.01 seconds
+module_options.eco loaded in 0.00 seconds
+ecl_compiler.eco loaded in 0.05 seconds
+q1a_puzzle_generate_and_test.pl compiled 10816 bytes in 0.00 seconds
+
+Yes (0.05s cpu)
+[eclipse 2]:  Start is cputime, solve_and_print, End is cputime, Time is End - Start.
+L = 1
+E = 3
+T = 8
+I = 4
+S = 0
+O = 2
+V = 6
+A = 9
+P = 5
+
+Start = 0.11
+End = 6.15
+Time = 6.04
+Yes (6.04s cpu, solution 1, maybe more) ? ;
+L = 1
+E = 3
+T = 8
+I = 6
+S = 0
+O = 2
+V = 4
+A = 9
+P = 5
+
+Start = 0.11
+End = 6.23
+Time = 6.12
+Yes (6.12s cpu, solution 2, maybe more) ? ;
+L = 1
+E = 8
+T = 3
+I = 7
+S = 2
+O = 0
+V = 9
+A = 6
+P = 4
+
+Start = 0.11
+End = 14.25
+Time = 14.14
+Yes (14.14s cpu, solution 3, maybe more) ? ;
+L = 1
+E = 8
+T = 3
+I = 9
+S = 2
+O = 0
+V = 7
+A = 6
+P = 4
+
+Start = 0.11
+End = 14.32
+Time = 14.21
+Yes (14.21s cpu, solution 4, maybe more) ? 
+
+*/
+
+
+%%%%% SECTION: puzzleInterleavingSession
+%%%%% Put your session for generate and test below
+
