@@ -1,0 +1,132 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Amay Shah
+%%%%% NAME: Farhan Ali
+%%%%% NAME:
+%
+% Add your queries below.For example, if you want to add the query "pred(X, constant).", 
+% it should appear as follows:
+% 
+% %%%%% QUERY 2
+% % EXPLANATION: Checks if there is a block on blockA
+% on(X, blockA).
+%
+% where 2 is the number of the query. The EXPLANATION line should contain your explanation 
+% in English of what the query tests. Omit the "%" on the line with the query
+% Don't forget to end queries with a period.
+
+
+%%%%%% QUERY 1
+% EXPLANATION: Check if there is collaboration path between john_doe and dana_white with distance 0
+
+% collabDist(john_doe, dana_white, 0).
+
+%%%%%% QUERY 2
+% EXPLANATION: Check if there is collaboration path between john_doe and dana_white with distance 1
+
+% collabDistWithAI(john_doe, dana_white, 1, none).
+
+%%%%%% QUERY 3
+% EXPLANATION: Check if there is colloboration path between john_doe and under_taker with max distance of 2
+
+% collabDistWithAI(john_doe, under_taker, 2, none).
+
+%%%%%% QUERY 4
+% EXPLANATION: Check if there is collaboration path between john_doe and john_doe with a max distance of 0 and involves at least one AI topic
+
+% collabDistWithAI(john_doe, john_doe, 0, at_least_one).
+
+%%%%%% QUERY 5
+% EXPLANATION: Check if there is collaboration path between sara_wilson and david_villa with a max distance of 1
+
+% collabDist(sara_wilson, david_villa, 1).
+
+%%%%%% QUERY 6
+% EXPLANATION: Check if there is collaboration path between john_doe and chris_james with a max distance of 3 which does not involve AI topic
+
+% collabDistWithAI(john_doe, chris_james, 3, none).
+
+%%%%%% QUERY 7
+% EXPLANATION: Check if there is collaboration path between thomas_clark and under_taker with a max distance of 2
+
+% collabDist(thomas_clark, under_taker, 2).
+
+%%%%%% QUERY 8
+% EXPLANATION: Check if there is collaboration path between leo_messi and leo_messi with a max distance of 0 which does not involve AI topic
+
+% collabDistWithAI(leo_messi, leo_messi, 0, none).
+
+%%%%%% QUERY 9
+% EXPLANATION: Check if there is collaboration path between leo_messi and patrick_mahone with a max distance of 2
+
+% collabDist(leo_messi, patrick_mahone, 2).
+
+%%%%%% QUERY 10
+% EXPLANATION: Check if there is collaboration path between john_cena and john_doe with a max distance of 1
+
+% collabDist(john_cena, john_doe, 1).
+
+
+% If you want to add more queries, put them above and use the same formatting as given above.
+
+
+%%%
+%%%
+%%%
+%%%%% INTERACTION
+
+/* 
+
+[eclipse 1]: ['q3_collab.pl'].
+source_processor.eco loaded in 0.01 seconds
+/Users/amay/applications/eclipseProlog/lib/hash.eco loaded in 0.00 seconds
+compiler_common.eco loaded in 0.01 seconds
+compiler_normalise.eco loaded in 0.00 seconds
+compiler_map.eco loaded in 0.01 seconds
+compiler_analysis.eco loaded in 0.01 seconds
+compiler_peephole.eco loaded in 0.00 seconds
+compiler_codegen.eco loaded in 0.01 seconds
+compiler_varclass.eco loaded in 0.00 seconds
+compiler_indexing.eco loaded in 0.00 seconds
+compiler_regassign.eco loaded in 0.01 seconds
+/Users/amay/applications/eclipseProlog/lib/asm.eco loaded in 0.01 seconds
+/Users/amay/applications/eclipseProlog/lib/module_options.eco loaded in 0.00 seconds
+/Users/amay/applications/eclipseProlog/lib/ecl_compiler.eco loaded in 0.05 seconds
+q3_collab.pl compiled 9856 bytes in 0.01 seconds
+
+Yes (0.06s cpu)
+[eclipse 2]: collabDist(john_doe, dana_white, 0).
+
+Yes (0.00s cpu, solution 1, maybe more) ? 
+[eclipse 3]: collabDistWithAI(john_doe, dana_white, 1, none).
+
+Yes (0.00s cpu, solution 1, maybe more) ? 
+[eclipse 4]: collabDistWithAI(john_doe, under_taker, 2, none).
+
+No (0.00s cpu)
+[eclipse 5]: collabDistWithAI(john_doe, john_doe, 0, at_least_one).
+
+No (0.00s cpu)
+[eclipse 6]: collabDist(sara_wilson, david_villa, 1).
+
+Yes (0.00s cpu, solution 1, maybe more) ? 
+[eclipse 7]: collabDistWithAI(john_doe, chris_james, 3, none).
+
+No (0.00s cpu)
+[eclipse 8]: collabDist(thomas_clark, under_taker, 2).
+
+No (0.00s cpu)
+[eclipse 9]: collabDistWithAI(leo_messi, leo_messi, 0, none).
+
+Yes (0.00s cpu, solution 1, maybe more) ? 
+[eclipse 10]: collabDist(leo_messi, patrick_mahone, 2).
+
+No (0.00s cpu)
+[eclipse 11]: collabDist(john_cena, john_doe, 1).
+
+No (0.00s cpu)
+[eclipse 12]: 
+
+*/

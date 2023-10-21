@@ -1,0 +1,116 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Amay Shah
+%%%%% NAME: Farhan Ali
+%%%%% NAME:
+%
+% Add your queries below.For example, if you want to add the query "pred(X, constant).", 
+% it should appear as follows:
+% 
+% %%%%% QUERY 2
+% % EXPLANATION: Checks if there is a block on blockA
+% on(X, blockA).
+%
+% where 2 is the number of the query. The EXPLANATION line should contain your explanation 
+% in English of what the query tests. Omit the "%" on the line with the query
+% Don't forget to end queries with a period.
+
+
+%%%%%% QUERY 1
+% EXPLANATION: Checks the subtotal before shipping and tax
+
+subtotal(Sub).
+
+%%%%%% QUERY 2
+% EXPLANATION: Checks basic shipping cost (does not consider free shipping approach)
+
+calculateBaseShipping(Cost).
+
+
+%%%%%% QUERY 3
+% EXPLANATION: Checks regular shipping cost (does consider free shipping approach)
+
+calculateShipping(regular, Cost).
+
+%%%%%% QUERY 4
+% EXPLANATION: Checks express shipping cost (does consider free shipping approach)
+
+calculateShipping(express, Cost).
+
+%%%%%% QUERY 5
+% EXPLANATION: Checks total cost (tax + shipping) when using regular shipping 
+
+totalCost(regular, Cost).
+
+%%%%%% QUERY 6
+% EXPLANATION: Checks total cost (tax + shipping) when using express shipping 
+
+totalCost(express, Cost).
+
+
+% If you want to add more queries, put them above and use the same formatting as given above.
+
+
+%%%
+%%%
+%%%
+%%%%% INTERACTION
+
+/*
+
+(base) amay@amays-mbp 1 % eclipse
+ECLiPSe Constraint Logic Programming System [kernel]
+Kernel and basic libraries copyright Cisco Systems, Inc.
+and subject to the Cisco-style Mozilla Public Licence 1.1
+(see legal/cmpl.txt or http://eclipseclp.org/licence)
+Source available at www.sourceforge.org/projects/eclipse-clp
+GMP library copyright Free Software Foundation, see legal/lgpl.txt
+For other libraries see their individual copyright notices
+Version 6.1 #164 (x86_64_macosx), Mon Jul 15 23:37 2013
+[eclipse 1]: ['q2_estore.pl'].
+source_processor.eco loaded in 0.00 seconds
+/Users/amay/applications/eclipseProlog/lib/hash.eco loaded in 0.00 seconds
+compiler_common.eco loaded in 0.01 seconds
+compiler_normalise.eco loaded in 0.01 seconds
+compiler_map.eco loaded in 0.00 seconds
+compiler_analysis.eco loaded in 0.00 seconds
+compiler_peephole.eco loaded in 0.01 seconds
+compiler_codegen.eco loaded in 0.00 seconds
+compiler_varclass.eco loaded in 0.00 seconds
+compiler_indexing.eco loaded in 0.01 seconds
+compiler_regassign.eco loaded in 0.00 seconds
+/Users/amay/applications/eclipseProlog/lib/asm.eco loaded in 0.01 seconds
+/Users/amay/applications/eclipseProlog/lib/module_options.eco loaded in 0.00 seconds
+/Users/amay/applications/eclipseProlog/lib/ecl_compiler.eco loaded in 0.05 seconds
+q2_estore.pl compiled 7824 bytes in 0.01 seconds
+
+Yes (0.06s cpu)
+[eclipse 2]: subtotal(Sub).
+
+Sub = 2400
+Yes (0.00s cpu)
+[eclipse 3]: calculateBaseShipping(Cost).
+
+Cost = 50
+Yes (0.00s cpu)
+[eclipse 4]: calculateShipping(regular, Cost).
+
+Cost = 0
+Yes (0.00s cpu)
+[eclipse 5]: calculateShipping(express, Cost).
+
+Cost = 75.0
+Yes (0.00s cpu)
+[eclipse 6]: totalCost(regular, Cost).
+
+Cost = 2711.9999999999995
+Yes (0.00s cpu)
+[eclipse 7]: totalCost(express, Cost).
+
+Cost = 2796.7499999999995
+Yes (0.00s cpu)
+[eclipse 8]: 
+
+*/
