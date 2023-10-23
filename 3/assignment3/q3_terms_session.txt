@@ -2,8 +2,8 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
+%%%%% NAME: Farhan Ali
+%%%%% NAME: Amay Shah
 %%%%% NAME:
 %
 % Add the required rules in the corresponding sections. 
@@ -14,14 +14,39 @@
 
 %%%%% SECTION: appendTSession
 %%%%% Put your test session for appendT below 
+?- appendT(next(a, next(b, nil)), next(1, next(2, nil)), Result).
+Result = next(a, next(b, next(1, next(2, nil))))
 
+?- appendT(Init, next(1,next(2,nil)), next(a,next(b,next(1,next(2,nil))))).
+Init = next(a, next(b, nil))
 
+?- appendT(next(a,next(b,nil)), Final, next(a,next(b,next(1,next(2,nil))))).
+Final = next(1, next(2, nil))
 
 %%%%% SECTION: list2termSession
 %%%%% Put your test session for list2term below 
+?- list2term([[a], [b, [c]] | [d] ], X).
+X = next(next(a, nil), next(next(b, next(next(c, nil), nil)), next(d, nil)))
 
+?- list2term([a | [b | [c]] ], X).
+X = next(a, next(b, next(c, nil)))
 
+?- list2term([ [a,[b, [c]]], d], X).
+X = next(next(a, next(next(b, next(next(c, nil), nil)), nil)), next(d, nil))
+
+?- list2term([[a, b]], X).
+X = next(next(a, next(b, nil)), nil)
 
 %%%%% SECTION: flat
 %%%%% Put your test session for flat below 
+?- list2term([[a, b]], X), flat(X, Y).
+X = next(next(a, next(b, nil)), nil),
+Y = next(a, next(b, nil))
 
+?- list2term([[[a] | [z]],[[b,[c]],[d]]], Term), flat(Term,FlatTerm).
+Term = next(next(next(a, nil), next(z, nil)), next(next(next(b, next(next(c, nil), nil)), next(next(d, nil), nil)), nil)),
+FlatTerm = next(a, next(z, next(b, next(c, next(d, nil))))
+
+?- list2term([[k],[[l]],[m | [n]]], Term), flat(Term, FlatTerm).
+Term = next(next(k, nil), next(next(next(l, nil), nil), next(next(m, next(n, nil)), nil))),
+FlatTerm = next(k, next(l, next(m, next(n, nil))))
