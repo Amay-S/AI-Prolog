@@ -20,8 +20,7 @@
 %%%%% solve predicate and prints out the results in an easy to read, human readable format.
 %%%%% The predicate "solve_and_print" should take in no arguments
 
-
-% Define possible digits
+% Given digit predicate
 digit(0).
 digit(1).
 digit(2).
@@ -33,55 +32,46 @@ digit(7).
 digit(8).
 digit(9).
 
-% Predicate to ensure a digit is not zero
-not_zero(D) :- 
-    digit(D), 
-    D \= 0.
-
-% Ensure all elements of a list are distinct
+% Predicate to ensure all elements in a list are distinct
 all_different([]).
 all_different([H|T]) :- 
     not(member(H, T)), 
     all_different(T).
 
+% Interleaved solve predicate
 solve(L, E, T, I, S, O, V, A, P) :-
-    % Generate L, A, P first as they have direct multiplications
-    not_zero(L),
-    not_zero(A),
-    not_zero(P),
-
-    % Generate other digits
+    % Assign values to L, E, T because they are used in all multiplications
+    digit(L), L \= 0,
     digit(E),
+    digit(T), T \= 0,
+    LET is L * 100 + E * 10 + T,
+    
+    % Assign values to I, S as they represent the result of the first multiplication
+    digit(I), I \= 0,
     digit(S),
+    ITS is I * 100 + T * 10 + S,
+
+    % Check constraint for the multiplication of LET by P (last digit of LAP)
+    digit(P),
+    Temp1 is LET * P,
+    Temp1 mod 1000 =:= ITS,  % The last three digits should match ITS
+
+    % Assign values to O, V for the second multiplication and its result
     digit(O),
     digit(V),
-    digit(I),
-    not_zero(T),
+    LOVE is L * 1000 + O * 100 + V * 10 + E,
 
+    % Assign value to A, the second digit of LAP
+    digit(A), A \= 0,
+    LAP is L * 100 + A * 10 + P,
+
+    TOOLS is LET * LAP,
+    TOOLS =:= ITS + 10 * LOVE + 100 * LET,
+    
     % Ensure all digits are distinct
-    all_different([L, E, T, I, S, O, V, A, P]),
+    all_different([L, E, T, I, S, O, V, A, P]).
 
-    % Test L x P = ITS
-    LP is L * P,
-    S is LP mod 10,
-    Car1 is LP // 10,
-    I is Car1 mod 10,
-    T is Car1 // 100,
-
-    % Test L x A = LOVE
-    LA is L * A,
-    E is LA mod 10,
-    Car2 is LA // 10,
-    V is Car2 mod 10,
-    O is Car2 // 100,
-
-    % Test L x L 
-    LL is L * L,
-    T is LL mod 10,
-    Car3 is LL // 10,
-    O is Car3 mod 10,
-    L is Car3 // 100.
-
+% Predicate to print the solution
 solve_and_print :-
     solve(L, E, T, I, S, O, V, A, P),
     write('L = '), write(L), nl,
@@ -93,3 +83,5 @@ solve_and_print :-
     write('V = '), write(V), nl,
     write('A = '), write(A), nl,
     write('P = '), write(P), nl.
+
+

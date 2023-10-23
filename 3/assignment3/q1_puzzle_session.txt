@@ -108,3 +108,52 @@ Yes (14.21s cpu, solution 4, maybe more) ?
 %%%%% SECTION: puzzleInterleavingSession
 %%%%% Put your session for generate and test below
 
+/*
+
+amay-mbp@amays-mbp assignment3 % eclipse
+ECLiPSe Constraint Logic Programming System [kernel]
+Kernel and basic libraries copyright Cisco Systems, Inc.
+and subject to the Cisco-style Mozilla Public Licence 1.1
+(see legal/cmpl.txt or http://eclipseclp.org/licence)
+Source available at www.sourceforge.org/projects/eclipse-clp
+GMP library copyright Free Software Foundation, see legal/lgpl.txt
+For other libraries see their individual copyright notices
+Version 6.1 #164 (x86_64_macosx), Mon Jul 15 23:37 2013
+[eclipse 1]: ['q1b_puzzle_interleaving.pl'].
+source_processor.eco loaded in 0.00 seconds
+hash.eco   loaded in 0.00 seconds
+compiler_common.eco loaded in 0.02 seconds
+compiler_normalise.eco loaded in 0.00 seconds
+compiler_map.eco loaded in 0.00 seconds
+compiler_analysis.eco loaded in 0.00 seconds
+compiler_peephole.eco loaded in 0.01 seconds
+compiler_codegen.eco loaded in 0.00 seconds
+compiler_varclass.eco loaded in 0.01 seconds
+compiler_indexing.eco loaded in 0.00 seconds
+compiler_regassign.eco loaded in 0.00 seconds
+asm.eco    loaded in 0.01 seconds
+module_options.eco loaded in 0.00 seconds
+ecl_compiler.eco loaded in 0.05 seconds
+q1b_puzzle_interleaving.pl compiled 11544 bytes in 0.00 seconds
+
+Yes (0.05s cpu)
+[eclipse 2]: Start is cputime, solve_and_print, End is cputime, Time is End - Start.
+L = 1
+E = 8
+T = 3
+I = 7
+S = 2
+O = 0
+V = 9
+A = 6
+P = 4
+
+Start = 0.11
+End = 0.13
+Time = 0.020000000000000004
+Yes (0.02s cpu, solution 1, maybe more) ? ;
+
+No (0.11s cpu)
+[eclipse 3]: 
+
+*/
