@@ -1,4 +1,3 @@
-
 % Enter the names of your group members below.
 % If you only have 2 group members, leave the last space blank
 %
@@ -20,6 +19,17 @@ orderNames([first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, 
             eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth, nineteenth, twentytieth]).
 
 currentYear(2023).
+
+% nth_element(Index, List, Element)
+% Retrieves the Element at the given Index from List
+nth_element(Index, List, Element) :-
+    nth_element_helper(Index, List, Element, 1).
+
+nth_element_helper(Index, [Element|_], Element, Index).
+nth_element_helper(Index, [_|Tail], Element, Count) :-
+    Count < Index,
+    NextCount is Count + 1,
+    nth_element_helper(Index, Tail, Element, NextCount).
 
 
 %%%%% SECTION: database
@@ -110,8 +120,8 @@ sumSongLengths([song(_, Length)|Rest], TotalLength) :-
 %%%%% Predicate atNamedIndex(List, IndexName, Element)
 atNamedIndex(List, IndexName, Element) :-
     orderNames(OrderNames),
-    nth1(Index, OrderNames, IndexName),
-    nth1(Index, List, Element).
+    nth_element(Index, OrderNames, IndexName),
+    nth_element(Index, List, Element).
 
 
 %%%%% SECTION: articles
@@ -150,38 +160,42 @@ common_noun(release_year).
 %%%%% Assignment 4 - Question 3
 
 % Short and long for songs and albums
-adjective(short, song) :- songLength(_, Length), Length < 180. % Less than 3 minutes
-adjective(long, song) :- songLength(_, Length), Length >= 360. % At least 6 minutes
-adjective(short, album) :- albumLength(_, Length), Length < 600. % Less than 10 minutes
-adjective(long, album) :- albumLength(_, Length), Length >= 3600. % At least an hour
+adjective(short, Song) :- songLength(Song, Length), Length < 180.
+adjective(short, Song) :- songLength(Song, Length), Length < 180.
 
-% Old and new for albums
-adjective(old, album) :- albumYear(_, Year), Year < 2000.
-adjective(new, album) :- albumYear(_, Year), currentYear(Current), Year == Current.
+adjective(long, Song) :- songLength(Song, Length), Length >= 360.
+adjective(short, Album) :- albumLength(Album, Length), Length < 600.
+adjective(long, Album) :- albumLength(Album, Length), Length >= 3600.
+
+% Old and new for albums and songs
+adjective(old, Album) :- albumYear(Album, Year), Year < 2000.
+adjective(new, Album) :- albumYear(Album, Year), currentYear(Current), Year == Current.
+adjective(old, Song) :- onAlbum(Song, Album), albumYear(Album, Year), Year < 2000.
+adjective(new, Song) :- onAlbum(Song, Album), albumYear(Album, Year), currentYear(Current), Year == Current.
 
 % Genre as adjective
-adjective(Genre, song) :- albumGenre(Album, Genre), trackList(Album, Songs), member(song(_, _), Songs).
-adjective(Genre, album) :- albumGenre(_, Genre).
+adjective(Genre, Album) :- albumGenre(Album, Genre).
+adjective(Genre, Song) :- onAlbum(Song, Album), albumGenre(Album, Genre).
 
 % Artist as adjective
-adjective(Artist, song) :- albumArtist(Album, Artist), trackList(Album, Songs), member(song(_, _), Songs).
-adjective(Artist, album) :- albumArtist(_, Artist).
+adjective(Artist, Album) :- albumArtist(Album, Artist).
+adjective(Artist, Song) :- onAlbum(Song, Album), albumArtist(Album, Artist).
 
-% Named indices (e.g., first, second) for songs in an album
-adjective(Index, song) :- orderNames(OrderNames), nth1(N, OrderNames, Index), trackList(_, Songs), nth1(N, Songs, song(_, _)).
+% Named indices for songs in an album
+adjective(Index, Song) :- orderNames(OrderNames), nth_element(N, OrderNames, Index), trackList(Album, Songs), nth_element(N, Songs, song(Song, _)).
+
 
 
 %%%%% SECTION: prepositions
 %%%%% Put the rules/statements defining the prepositions below
 %%%%% Assignment 4 - Question 3
 
-preposition(on, song, album) :- trackList(_, _).
-preposition(by, _, artist) :- albumArtist(_, _).
-preposition(released_in, _, year) :- albumYear(_, _).
-preposition(of, _, attribute) :- % attribute can be length, genre, etc.
-preposition(released_before, album, album) :- albumYear(_, _).
-preposition(released_after, album, album) :- albumYear(_, _).
-preposition(with, _, attribute) :- % attribute can be length, genre, etc.
+preposition(on, song, album).
+preposition(by, _, artist).
+preposition(released_in, _, year).
+preposition(of, _, attribute).
+preposition(released_before, album, album).
+preposition(released_after, album, album).
 
 
 %%%%% SECTION: PARSER
